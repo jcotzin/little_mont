@@ -2,7 +2,6 @@
 
 
 
-	/*RSVP Form*/
 	$(".submit").on("click", function(){
 		var type = $(this).parents('.form').attr('id');
 		send_form(type);
@@ -29,14 +28,14 @@
 			$("#"+type+" input#email").focus();
 			return false;
 		}
+
 		var phone = $("#"+type+" input#phone").val();
 		var message = $("#"+type+" textarea#message").val();
 
 	if(type == "write_us") {
-		var dataString = '&name=' + name +'&surname=' + surname + '&email=' + email + '&city=' + city
+		var dataString = '&name=' + name +'&lastname=' + lastname + '&email=' + email + '&city=' + city
 		+ '&country=' + country + '&phone=' + phone + '&message=' + message;
 	}
-
 
 	var form = $(this);
 	var str = form.serialize();
@@ -46,7 +45,7 @@
 		data: dataString,
 		dataType: "json",
 		success: function() {
-			$("#"+type).html("<div id='form_send_message'>Thank you for your message, we will contact you as soon as possible.</div>", 1500);
+			$("#"+type).html("<div id='form_send_message'>Thank you for your request, we will contact you as soon as possible.</div>", 1500);
 		}
 	});
 
